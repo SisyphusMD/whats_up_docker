@@ -1,0 +1,33 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "WUD Configuration",
+        "description": "Enter the URL and credentials for your WUD API.",
+        "data": {
+          "url": "WUD API URL",
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to WUD. Please check the URL and credentials.",
+      "unknown": "An unknown error occurred"
+    },
+    "abort": {
+      "already_configured": "Integration is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "WUD Options",
+        "description": "Configure optional settings.",
+        "data": {
+          "github_token": "GitHub Personal Access Token (optional)"
+        }
+      }
+    }
+  }
+}

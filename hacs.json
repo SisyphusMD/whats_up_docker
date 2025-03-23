@@ -1,0 +1,6 @@
+{
+    "name": "What's Up Docker",
+    "content_in_root": false,
+    "filename": "custom_components/whats_up_docker/manifest.json",
+    "domains": ["whats_up_docker"]
+}

@@ -1,0 +1,11 @@
+{
+  "domain": "whats_up_docker",
+  "name": "What's Up Docker",
+  "version": "0.0.1",
+  "documentation": "https://github.com/SisyphusMD/wud",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@SisyphusMD"],
+  "iot_class": "local_polling",
+  "config_flow": true
+}
