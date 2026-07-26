@@ -1,0 +1,49 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "gitAuthor": "Renovate Bot <renovate@bryantserver.local>",
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
+  "separateMinorPatch": true,
+  "fetchChangeLogs": "pr",
+  "enabledManagers": ["github-actions", "custom.regex"],
+  "includePaths": [
+    ".forgejo/workflows/**",
+    "custom_components/whats_up_docker/manifest.json",
+    "hacs.json"
+  ],
+  "github-actions": {
+    "managerFilePatterns": ["/(\\.github|\\.forgejo)/workflows/.+\\.ya?ml$/"]
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Track the integration's Python requirements declared in manifest.json (HACS integrations pin deps there, not in requirements.txt).",
+      "managerFilePatterns": ["/custom_components/.+/manifest\\.json$/"],
+      "matchStrings": ["\"(?<depName>[A-Za-z0-9_.-]+)==(?<currentValue>[0-9][^\"]*)\""],
+      "datasourceTemplate": "pypi"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Major Updates",
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["major-update"]
+    },
+    {
+      "description": "Minor Updates",
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["minor-update"]
+    },
+    {
+      "description": "Patch Updates",
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["patch-update"]
+    },
+    {
+      "description": "No CI here yet, so nothing would catch a bad bump — every update is reviewed by hand until this repo has a test workflow.",
+      "matchUpdateTypes": ["patch", "digest"],
+      "automerge": false
+    }
+  ]
+}
